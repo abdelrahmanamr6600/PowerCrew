@@ -1,0 +1,96 @@
+[versions]
+agp = "8.7.0"
+datastorePreferences = "1.1.1"
+firebaseBom = "33.7.0"
+kotlin = "2.0.0"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+kotlinxCoroutinesAndroidVersion = "1.3.9"
+lifecycleViewmodel = "2.8.7"
+material = "1.12.0"
+activity = "1.9.3"
+constraintlayout = "2.2.0"
+navigationFragmentKtx = "2.8.5"
+navigationUiKtx = "2.8.5"
+lottie = "6.6.2"
+androidGifDrawable = "1.2.29"
+exoplayer = "2.19.1"
+media3Exoplayer = "1.6.0-alpha01"
+media3ExoplayerDash = "1.5.1"
+media3ExoplayerDashVersion = "1.6.0-alpha01"
+media3Ui = "1.6.0-alpha01"
+kotlinxCoroutinesAndroid = "1.10.1"
+sdpAndroid = "1.1.1"
+sspAndroid = "1.1.1"
+animationCoreAndroid = "1.7.6"
+firebaseFirestore = "25.1.1"
+firebaseMessaging = "24.1.0"
+firebaseAuth = "23.1.0"
+coreKtxVersion = "1.6.1"
+playServices = "12.0.1"
+kotlinxCoroutinesPlayServices = "1.10.1"
+motiontoast = "1.4"
+fancytoast = "2.0.2"
+airysnackbar = "LatestVersion"
+airysnackbarVersion = "1.0.1"
+awesomedialog = "2.0.5"
+snacking2 = "1.1.3"
+coordinatorlayout = "1.2.0"
+customtoastandroid = "0.2.2"
+datastorePreferencesVersion = "1.1.2"
+gson = "2.11.0"
+materialsearchbar = "0.8.5"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime", version.ref = "lifecycleViewmodel" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewmodel" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlinx-coroutines-android-v139 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroidVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+android-gif-drawable = { group = "pl.droidsonroids.gif", name = "android-gif-drawable", version.ref = "androidGifDrawable" }
+exoplayer = { group = "com.google.android.exoplayer", name = "exoplayer", version.ref = "exoplayer" }
+androidx-media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "media3Exoplayer" }
+androidx-media3-exoplayer-dash = { group = "androidx.media3", name = "media3-exoplayer-dash", version.ref = "media3ExoplayerDash" }
+media3-exoplayer-dash = { group = "androidx.media3", name = "media3-exoplayer-dash", version.ref = "media3ExoplayerDashVersion" }
+androidx-media3-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "media3Ui" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+sdp-android = { group = "com.intuit.sdp", name = "sdp-android", version.ref = "sdpAndroid" }
+ssp-android = { group = "com.intuit.ssp", name = "ssp-android", version.ref = "sspAndroid" }
+androidx-animation-core-android = { group = "androidx.compose.animation", name = "animation-core-android", version.ref = "animationCoreAndroid" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
+play-services = { group = "com.google.android.gms", name = "play-services", version.ref = "playServices" }
+kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutinesPlayServices" }
+motiontoast = { group = "com.github.Spikeysanju", name = "MotionToast", version.ref = "motiontoast" }
+fancytoast = { group = "io.github.shashank02051997", name = "FancyToast", version.ref = "fancytoast" }
+airysnackbar = { group = "com.github.akndmr", name = "AirySnackbar", version.ref = "airysnackbar" }
+akndmr-airysnackbar = { group = "com.github.akndmr", name = "AirySnackbar", version.ref = "airysnackbarVersion" }
+awesomedialog = { group = "com.github.blennerSilva", name = "AwesomeDialog", version.ref = "awesomedialog" }
+snacking2 = { group = "com.github.eriffanani", name = "Snacking2", version.ref = "snacking2" }
+androidx-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
+customtoastandroid = { group = "com.github.subodhrathaur", name = "CustomToastAndroid", version.ref = "customtoastandroid" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastorePreferencesVersion" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+materialsearchbar = { group = "com.github.mancj", name = "MaterialSearchBar", version.ref = "materialsearchbar" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "139434650828",
+    "project_id": "powercrew-d5bf7",
+    "storage_bucket": "powercrew-d5bf7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139434650828:android:d046ee09ee65b468a66669",
+        "android_client_info": {
+          "package_name": "com.example.powercrew"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9nT33RbAMsml6RIZKe9DAYMxv1AC2QGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
