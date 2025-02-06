@@ -11,11 +11,9 @@ import com.example.powercrew.domain.repositories.LoginRepository
 import com.example.powercrew.domain.usecases.LoginUseCase
 import com.example.powercrew.utils.Resource
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.userProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.longrunning.Operation.ResultCase
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.plus
+
 
 class LoginViewModel(application: Application) : AndroidViewModel(application){
     private var firebaseAuth = FirebaseAuth.getInstance()

@@ -15,7 +15,10 @@ class ChoseCityViewModel(private var application: Application):AndroidViewModel(
     private var _citiesList = MutableLiveData<Cities>()
     val citiesList :LiveData<Cities> get()  =  _citiesList
 
-    fun getCities(){
+    init {
+        getCities()
+    }
+    private fun getCities(){
         viewModelScope.launch {
             _citiesList.value = cityUseCase.getCities(application)
         }
