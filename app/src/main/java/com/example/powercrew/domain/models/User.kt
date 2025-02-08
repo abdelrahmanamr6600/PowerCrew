@@ -6,4 +6,6 @@ data class User(
     var email:String="",
     var phone:String="",
     var password:String="",
+    var cityItem: CityItem? = null,
+    var token:String? = null
 )

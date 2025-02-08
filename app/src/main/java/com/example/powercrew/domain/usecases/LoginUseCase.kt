@@ -23,13 +23,17 @@ class LoginUseCase(private val loginRepository: LoginRepository) {
 
 
     }
-    suspend fun login(email:String , password:String):Resource<User>{
+    suspend fun
+            login(email:String , password:String):Resource<User>{
         return loginRepository.login(email,password)
 
     }
 
     suspend fun getLoginState():Boolean{
          return loginRepository.getLoginState()
+    }
+    suspend fun  checkUserCityState():Boolean{
+        return loginRepository.getUserCityState()
     }
 
 }

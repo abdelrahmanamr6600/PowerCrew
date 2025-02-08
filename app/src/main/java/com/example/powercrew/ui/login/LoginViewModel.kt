@@ -25,10 +25,13 @@ class LoginViewModel(application: Application) : AndroidViewModel(application){
     private var _validationResult = MutableLiveData<Resource<Unit>>()
     var validationResult : LiveData<Resource<Unit>> = _validationResult
     private val _isLoggedIn = MutableLiveData<Boolean>()
-
     val isLoggedIn: LiveData<Boolean> get() = _isLoggedIn
+    private val _cityState = MutableLiveData<Boolean>()
+    val cityState: LiveData<Boolean> get() = _cityState
+
     init {
         checkLoginState()
+        checkCityState()
     }
 
     fun validationLoginData(email: String,password: String){
@@ -52,5 +55,10 @@ class LoginViewModel(application: Application) : AndroidViewModel(application){
        viewModelScope.launch {
            _isLoggedIn.value  = loginUseCase.getLoginState()
        }
+    }
+    private fun checkCityState(){
+        viewModelScope.launch {
+            _cityState.value = loginUseCase.checkUserCityState()
+        }
     }
 }

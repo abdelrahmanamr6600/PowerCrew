@@ -122,7 +122,9 @@ class RegistrationFragment : Fragment() {
                 binding.fullNameEt.text.toString(),
                 binding.emailEt.text.toString(),
                 binding.phoneEt.text.toString(),
-                binding.passwordEt.text.toString()
+                binding.passwordEt.text.toString(),
+                null
+
             )
           viewModel.validationUserData(user)
         }

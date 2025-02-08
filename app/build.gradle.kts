@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+    id ("kotlin-kapt")
 }
 
 android {
@@ -36,6 +37,8 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
+
     }
 }
 
@@ -67,6 +70,7 @@ dependencies {
     implementation(libs.customtoastandroid)
     implementation(libs.datastore.preferences)
     implementation(libs.materialsearchbar)
+    implementation(libs.popup.dialog)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

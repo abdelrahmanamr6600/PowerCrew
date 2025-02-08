@@ -43,6 +43,7 @@ customtoastandroid = "0.2.2"
 datastorePreferencesVersion = "1.1.2"
 gson = "2.11.0"
 materialsearchbar = "0.8.5"
+popupDialog = "2.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -89,6 +90,7 @@ customtoastandroid = { group = "com.github.subodhrathaur", name = "CustomToastAn
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastorePreferencesVersion" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 materialsearchbar = { group = "com.github.mancj", name = "MaterialSearchBar", version.ref = "materialsearchbar" }
+popup-dialog = { group = "com.saadahmedev.popup-dialog", name = "popup-dialog", version.ref = "popupDialog" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -11,12 +11,14 @@ import com.example.powercrew.R
 
 import com.example.powercrew.databinding.CityCardBinding
 import com.example.powercrew.domain.models.CityItem
+import com.google.android.material.animation.AnimationUtils
 
 class CitiesListAdapter:RecyclerView.Adapter<CitiesListAdapter.CitiesViewHolder>() {
+    lateinit var onCityClick:((CityItem)->Unit)
 
     private val diffUtil = object: DiffUtil.ItemCallback<CityItem>() {
         override fun areItemsTheSame(oldItem: CityItem, newItem: CityItem): Boolean {
-            return (oldItem.city_name_en==newItem.city_name_en)
+            return (oldItem.cityNameEn==newItem.cityNameEn)
         }
 
         override fun areContentsTheSame(oldItem: CityItem, newItem: CityItem): Boolean {
@@ -36,7 +38,11 @@ class CitiesListAdapter:RecyclerView.Adapter<CitiesListAdapter.CitiesViewHolder>
     }
 
     override fun onBindViewHolder(holder: CitiesViewHolder, position: Int) {
-        holder.binding.cityNameTv.text = diff.currentList[position].city_name_en
+        holder.binding.cityNameTv.text = diff.currentList[position].cityNameEn
         holder.binding.root.setBackgroundResource(R.drawable.city_card_background)
+        holder.itemView.startAnimation(android.view.animation.AnimationUtils.loadAnimation(holder.itemView.context,R.anim.city_card_anim))
+        holder.itemView.setOnClickListener {
+            onCityClick.invoke(diff.currentList[position])
+        }
     }
 }

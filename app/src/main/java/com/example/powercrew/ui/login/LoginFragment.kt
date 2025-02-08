@@ -1,5 +1,6 @@
 package com.example.powercrew.ui.login
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.example.powercrew.R
 import com.example.powercrew.databinding.FragmentLoginBinding
 import com.example.powercrew.utils.Resource
 import com.subodh.customtoast.CustomToast
+import kotlinx.coroutines.delay
 
 
 class LoginFragment : Fragment() {
@@ -54,7 +56,7 @@ class LoginFragment : Fragment() {
     private fun checkLoginState(){
         viewModel.isLoggedIn.observe(viewLifecycleOwner){state ->
             if (state)
-                goToHomeScreen()
+                checkCityState()
         }
     }
 
@@ -64,7 +66,7 @@ class LoginFragment : Fragment() {
             when(resources){
                 is Resource.Error -> showLoginErrors(resources.message!!)
                 is Resource.Loading -> {showProgressBar()}
-                is Resource.Success -> goToHomeScreen()
+                is Resource.Success -> checkCityState()
             }
 
         }
@@ -128,8 +130,25 @@ class LoginFragment : Fragment() {
         val navOptions = NavOptions.Builder()
             .setPopUpTo(R.id.loginFragment, true)
             .build()
+        findNavController().navigate(R.id.homeFragment, null, navOptions)
+    }
 
+    private fun goToChooseCitFragment(){
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.loginFragment, true)
+            .build()
         findNavController().navigate(R.id.chooseCityFragment, null, navOptions)
+    }
+
+    private fun checkCityState() {
+   viewModel.cityState.observe(viewLifecycleOwner){state->
+       Log.d("a7a",state.toString())
+       if (state){
+           goToHomeScreen()
+       }else{
+           goToChooseCitFragment()
+       }
+   }
     }
 
     override fun onDestroy() {

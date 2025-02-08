@@ -1,8 +1,9 @@
 package com.example.powercrew.domain.models
 
+import com.google.gson.annotations.SerializedName
+
 data class CityItem(
-    val city_name_ar: String,
-    val city_name_en: String,
-    val governorate_id: String,
-    val id: String
+    @SerializedName("city_name_ar") val cityNameAr: String ="",
+    @SerializedName("city_name_en") val cityNameEn: String="",
+    @SerializedName("id") val id: String=""
 )
