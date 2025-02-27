@@ -14,7 +14,7 @@ import com.example.powercrew.R
 import com.example.powercrew.databinding.FragmentLoginBinding
 import com.example.powercrew.utils.Resource
 import com.subodh.customtoast.CustomToast
-import kotlinx.coroutines.delay
+
 
 
 class LoginFragment : Fragment() {
@@ -130,7 +130,7 @@ class LoginFragment : Fragment() {
         val navOptions = NavOptions.Builder()
             .setPopUpTo(R.id.loginFragment, true)
             .build()
-        findNavController().navigate(R.id.homeFragment, null, navOptions)
+        findNavController().navigate(R.id.mainFragment, null, navOptions)
     }
 
     private fun goToChooseCitFragment(){

@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
-    id ("kotlin-kapt")
+
 }
 
 android {
@@ -15,6 +15,7 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,8 +38,6 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        dataBinding = true
-
     }
 }
 
@@ -71,6 +70,9 @@ dependencies {
     implementation(libs.datastore.preferences)
     implementation(libs.materialsearchbar)
     implementation(libs.popup.dialog)
+    implementation(libs.androidx.multidex)
+    implementation(libs.curved.bottom.navigation)
+    implementation(libs.androidx.runtime.saved.instance.state)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

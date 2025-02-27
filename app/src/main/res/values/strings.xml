@@ -37,4 +37,11 @@
     <string name="not_found">not found</string>
     <string name="choose_your_area">Choose your area</string>
     <string name="please_enter_city_name">Please Enter City Name</string>
+    <string name="problem_title">Problem Title</string>
+    <string name="problem_description">Problem Description</string>
+    <string name="problem_address">Problem Address</string>
+    <string name="select_engineer">Select Engineer</string>
+    <string name="submit_btn">Submit</string>
+    <string name="engineers">Engineers</string>
+    <string name="please_enter_engineer_name">Please Enter Engineer Name</string>
 </resources>

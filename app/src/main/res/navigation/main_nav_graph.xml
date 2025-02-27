@@ -14,13 +14,11 @@
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true" />
-        <action
             android:id="@+id/action_loginFragment_to_chooseCityFragment"
             app:destination="@id/chooseCityFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -31,17 +29,31 @@
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.powercrew.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
         android:id="@+id/chooseCityFragment"
         android:name="com.example.powercrew.ui.cities.ChooseCityFragment"
         android:label="fragment_choose_city"
         tools:layout="@layout/fragment_choose_city" >
         <action
-            android:id="@+id/action_chooseCityFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_chooseCityFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.powercrew.ui.mainfragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/reportProblemFragment"
+        android:name="com.example.powercrew.ui.reportproblemfragment.ReportProblemFragment"
+        android:label="fragment_report_problem"
+        tools:layout="@layout/fragment_report_problem" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.powercrew.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_reportProblemFragment"
+            app:destination="@id/reportProblemFragment" />
     </fragment>
 </navigation>

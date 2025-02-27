@@ -70,5 +70,9 @@ class DataStoreManager(private val context: Context) {
             gson.fromJson(userJson, User::class.java)
         }
 
+    val cityItemData: Flow<CityItem?> = userData.map { user ->
+        user?.cityItem
+    }
+
 
 }

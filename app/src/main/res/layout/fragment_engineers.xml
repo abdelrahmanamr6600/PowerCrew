@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".ui.engineers.EngineersFragment">
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarLight"
+        app:mt_speechMode="false"
+        app:mt_hint="@string/please_enter_engineer_name"
+        app:mt_placeholder="@string/engineers"
+        app:mt_placeholderColor="@color/auth_btn"
+        app:mt_maxSuggestionsCount="10"
+        app:mt_backIconTint="@color/primary_color"
+        app:mt_searchIconTint="@color/primary_color"
+        app:mt_clearIconTint="@color/primary_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchBar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/engineers_Rv"
+        tools:listitem="@layout/engineer_card"
+        tools:itemCount="10"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchBar"/>
+
+
+
+
+
+</RelativeLayout>

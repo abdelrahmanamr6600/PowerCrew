@@ -6,4 +6,5 @@
     <color name="dark_grey">#555555</color>
     <color name="auth_btn">#0265ff</color>
     <color name="primary_color">#0265ff</color>
+    <color name="state_color">#38761d</color>
 </resources>

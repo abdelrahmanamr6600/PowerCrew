@@ -68,7 +68,7 @@ class ChooseCityFragment : Fragment() , MaterialSearchBar.OnSearchActionListener
         val navOptions = NavOptions.Builder()
             .setPopUpTo(R.id.chooseCityFragment, true)
             .build()
-        findNavController().navigate(R.id.action_chooseCityFragment_to_homeFragment, null, navOptions)
+        findNavController().navigate(R.id.action_chooseCityFragment_to_mainFragment, null, navOptions)
 
     }
 
@@ -89,7 +89,6 @@ private fun setupSearchView(){
     binding.searchBar.isSuggestionsEnabled = true
     binding.searchBar.addTextChangeListener(object :TextWatcher{
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {

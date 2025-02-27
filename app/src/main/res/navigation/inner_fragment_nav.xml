@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/inner_fragment_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.powercrew.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_chooseCityFragment"
+            app:destination="@id/chooseCityFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_reportProblemFragment3"
+            app:destination="@id/reportProblemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseCityFragment2"
+        android:name="com.example.powercrew.ui.cities.ChooseCityFragment"
+        android:label="fragment_choose_city"
+        tools:layout="@layout/fragment_choose_city" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.powercrew.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.powercrew.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/reportProblemFragment"
+        android:name="com.example.powercrew.ui.reportproblemfragment.ReportProblemFragment"
+        android:label="fragment_report_problem"
+        tools:layout="@layout/fragment_report_problem" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.powercrew.ui.mainfragment.MainFragment"
+        android:label="MainFragment" />
+</navigation>
