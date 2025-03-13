@@ -11,4 +11,28 @@
     <style name="Theme.PowerCrew" parent="Base.Theme.PowerCrew">
 
     </style>
+
+
+
+    <style name="ContentStyle">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColor">@color/black</item>
+         <item name="android:layout_marginStart">@dimen/_12sdp</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+    </style>
+    <style name="HeadLineStyle">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginStart">@dimen/_8sdp</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+    </style>
+
+    <!-- نمط عنوان التولبار -->
+    <style name="ToolbarTitleBold">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+
+    </style>
+
 </resources>

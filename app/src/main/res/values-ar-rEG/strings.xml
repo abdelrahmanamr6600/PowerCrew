@@ -1,9 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose_your_area">اختار المنطقة التابع لها</string>
-    <string name="problem_title">Problem Title</string>
-    <string name="problem">Problem Description</string>
-    <string name="select_engineer">Select Engineer</string>
-    <string name="submit_btn">Submit</string>
-    <string name="please_enter_engineer_name">Please Enter Engineer Name</string>
+    <string name="app_name">PowerCrew</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="app_descraption">Stay connected, stay protected</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_back">اهلا بعوديتك</string>
+    <string name="Login">تسجيل الدخول</string>
+    <string name="enter_your_phone">ادخل رقم هاتفك</string>
+    <string name="login_to_continue_using_the_app">سجل الدخول لإستخدام التطبيق</string>
+    <string name="phone">الهاتف</string>
+    <string name="password">كلمة المرور</string>
+    <string name="enter_your_password">برجاء إدخال كلمو المرور</string>
+    <string name="forget_password">نسيت كلمة السر؟</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="enter_your_personal_information">أدخل بياناتك الشخصية</string>
+    <string name="fullName">إسمك بالكامل</string>
+    <string name="enter_your_full_name">برجاء إدخال اسمك بالكامل </string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="enter_your_email">برجاء إدخال بريدك الإلكتروني</string>
+
+    <!-- Registration -->
+    <string name="error_empty_name_en">برجاء إدخال اسمك</string>
+    <string name="error_invalid_phone_en">يجب ان يكون رقم الهاتف مكزن من 11 رقم</string>
+    <string name="error_short_password_en">يجب أن تكون كلمة المرور أكثر من 6 أحرف</string>
+    <string name="error_email">بريد إلكتروني غير صحيح </string>
+    <string name="success_signup_en">Sign-up successful</string>
+    <string name="phone_dosnt_exist">هذا الرقم غير معرف لدينا</string>
+    <string name="please_enter_your_password">برجاء إدخال كلمة المرور</string>
+    <string name="registration_succefully">تم التسجيل بنجاح </string>
+    <string name="not_found">not found</string>
+    <string name="choose_your_area">اختار مدينتك ؟</string>
+    <string name="please_enter_city_name">برجاء إدخال اسم المدينة</string>
+    <string name="problem_title">عنوان المشكلة</string>
+    <string name="problem_description">وصف المشكلة</string>
+    <string name="problem_address">موقع المشكلة</string>
+    <string name="select_engineer">اختار المشكلة</string>
+    <string name="submit_btn">إبلاغ</string>
+    <string name="engineers">المهندسين</string>
+    <string name="please_enter_engineer_name">من فضلك ادخل اسم المهندس ؟</string>
+    <string name="problem_pending_state">Pending</string>
+    <string name="sent_problem_succefully">تم إبلاغ المشكلة بنجاح</string>
+    <string name="language">اللغة</string>
+    <string name="settings">الاعدادت</string>
+    <string name="about_us">عننا</string>
+    <string name="in_progress_problems">إبلاغات قيد الحل</string>
+    <string name="have_a_nice_day">استمتع بيوم جميل</string>
+    <string name="select_problem_type">اختر نوع المشكلة </string>
+    <string name="report_a_problem">الإبلاغ عن مشكلة</string>
+    <string name="pending_problems">إلإبلاغات المعلقة</string>
+    <string name="completed_problems">الإبلاغات المكتملة</string>
+    <string name="no_problem_found">لا يوجد بلاغات </string>
+    <string name="problem_details">تفاصيل المشكلة  </string>
+    <string name="date">التاريخ</string>
+    <string name="title">العنوان:</string>
+    <string name="address">الموقع:</string>
+    <string name="statue">الحالة:</string>
+    <string name="engineer_info">معلومات المهندس </string>
+    <string name="edit">Edit</string>
+    <string name="change_password">Change Password</string>
+    <string name="logout">Logout</string>
+    <string name="change_city">Change City</string>
+    <string name="profile">Profile</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.powercrew.domain.repositories
 import DataStoreManager
 import android.content.Context
 import com.example.powercrew.domain.models.Engineer
+import com.example.powercrew.domain.models.User
 import com.example.powercrew.utils.FirestoreCollections
 import com.example.powercrew.utils.FirestoreFieldNames
 import com.example.powercrew.utils.FirestoreInstance
@@ -67,4 +68,11 @@ class EngineersRepository(context: Context) {
             awaitClose { listener.remove() }
         })
     }
+
+
+
+
+
+
+
 }

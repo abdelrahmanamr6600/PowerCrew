@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.problemdetails.ProblemDetails">
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     android:paddingBottom="@dimen/_15sdp">
+     <!-- Toolbar -->
+     <com.google.android.material.appbar.MaterialToolbar
+         android:id="@+id/toolbar"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@color/primary_color"
+         android:backgroundTint="@color/white"
+         android:elevation="@dimen/_10sdp"
+         app:title="@string/problem_details"
+         app:titleCentered="true"
+         app:titleTextAppearance="@style/ToolbarTitleBold"
+         app:titleTextColor="@color/primary_color" />
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="@dimen/_15sdp"
+         android:layout_marginTop="@dimen/_10sdp"
+         android:text="Problem Info"
+         android:textColor="@color/black"
+         android:textSize="@dimen/_15ssp"
+         android:textStyle="bold" />
+
+     <androidx.cardview.widget.CardView
+         android:id="@+id/problem_info_card"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="@dimen/_15sdp"
+         android:elevation="@dimen/_5sdp"
+         app:cardCornerRadius="@dimen/_8sdp">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             android:padding="@dimen/_5sdp">
+             <!-- Problem Details -->
+             <TextView
+                 android:id="@+id/date_title_tv"
+                 style="@style/HeadLineStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/date" />
+
+             <TextView
+                 android:id="@+id/date_tv"
+                 style="@style/ContentStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/date" />
+
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_1sdp"
+                 android:background="#DCDCDC" />
+
+             <TextView
+                 android:id="@+id/title_headline_tv"
+                 style="@style/HeadLineStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/title" />
+
+             <TextView
+                 android:id="@+id/title_tv"
+                 style="@style/ContentStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/title" />
+
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_1sdp"
+                 android:background="#DCDCDC" />
+
+             <TextView
+                 android:id="@+id/address_headline_tv"
+                 style="@style/HeadLineStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/address" />
+
+             <TextView
+                 android:id="@+id/address_tv"
+                 style="@style/ContentStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/address" />
+
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_1sdp"
+                 android:background="#DCDCDC" />
+
+             <TextView
+                 android:id="@+id/statue_headline_tv"
+                 style="@style/HeadLineStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/statue" />
+
+             <TextView
+                 android:id="@+id/statue_tv"
+                 style="@style/ContentStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/statue" />
+             <!-- Problem Description -->
+
+
+         </LinearLayout>
+     </androidx.cardview.widget.CardView>
+
+     <androidx.cardview.widget.CardView
+         android:id="@+id/problem_desc_card"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="@dimen/_15sdp"
+         android:elevation="@dimen/_5sdp"
+
+         app:cardCornerRadius="@dimen/_8sdp">
+
+         <TextView
+             android:id="@+id/problem_description_title"
+             style="@style/ContentStyle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_5sdp"
+             android:text="@string/problem_description"
+             android:textSize="@dimen/_15ssp"
+             android:textStyle="bold" />
+
+         <EditText
+             android:id="@+id/problem_description_tv"
+             style="@style/ContentStyle"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginTop="@dimen/_40sdp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginBottom="@dimen/_20sdp"
+             android:background="@drawable/problem_text_view_shape"
+             android:clickable="false"
+             android:focusable="false"
+             android:padding="@dimen/_5sdp"
+             android:text="@string/problem_description" />
+
+     </androidx.cardview.widget.CardView>
+
+
+     <!-- Engineer Details -->
+     <TextView
+         android:id="@+id/engineer_details_headline"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="@dimen/_15sdp"
+         android:layout_marginTop="@dimen/_10sdp"
+         android:text="@string/engineer_info"
+         android:textColor="@color/black"
+         android:textSize="@dimen/_15ssp"
+         android:textStyle="bold" />
+
+     <androidx.cardview.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/_70sdp"
+         android:layout_margin="@dimen/_12sdp"
+         app:cardCornerRadius="@dimen/_6sdp"
+         app:cardElevation="@dimen/_3sdp">
+
+         <androidx.constraintlayout.widget.ConstraintLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <ImageView
+                 android:id="@+id/icon_iv"
+                 android:layout_width="@dimen/_70sdp"
+                 android:layout_height="match_parent"
+                 android:background="@color/primary_color"
+                 android:src="@drawable/engineer_icon"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toTopOf="parent" />
+
+             <TextView
+                 android:id="@+id/name_tv"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="@dimen/_7sdp"
+                 android:layout_marginTop="@dimen/_9sdp"
+                 android:text="Abdelrahman Amr"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_13ssp"
+                 android:textStyle="bold"
+                 app:layout_constraintStart_toEndOf="@+id/icon_iv"
+                 app:layout_constraintTop_toTopOf="parent" />
+
+             <TextView
+                 android:id="@+id/city_tv"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Helwan"
+                 android:textSize="@dimen/_12ssp"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintStart_toStartOf="@+id/name_tv"
+                 app:layout_constraintTop_toBottomOf="@+id/name_tv" />
+
+             <TextView
+                 android:id="@+id/state_tv"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="@dimen/_9sdp"
+                 android:layout_marginEnd="@dimen/_15sdp"
+                 android:text="online"
+                 android:textColor="@color/state_color"
+                 android:textStyle="bold"
+                 app:layout_constraintBottom_toTopOf="@+id/call_icon_Iv"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintTop_toTopOf="parent" />
+
+             <ImageView
+                 android:id="@+id/call_icon_Iv"
+                 android:layout_width="@dimen/_30sdp"
+                 android:layout_height="@dimen/_25sdp"
+                 android:layout_marginEnd="@dimen/_15sdp"
+                 android:layout_marginBottom="@dimen/_10sdp"
+                 android:src="@drawable/baseline_call_24"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintEnd_toEndOf="parent" />
+
+
+         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+     </androidx.cardview.widget.CardView>
+
+ </LinearLayout>
+
+
+
+</ScrollView>

@@ -13,8 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary_color"
-        app:title="Report Fragment"
-        app:titleTextColor="@color/white"
+        app:titleTextAppearance="@style/ToolbarTitleBold"
+        app:title="@string/report_a_problem"
+        android:backgroundTint="@color/white"
+        app:titleTextColor="@color/primary_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -117,15 +119,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/_10sdp"
-
         tools:listitem="@layout/select_engineer_card"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+        app:layout_constraintBottom_toTopOf="@+id/reportProblem_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/select_engineer_headline_tv" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/reportProblem_btn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:layout_margin="@dimen/_10sdp"
@@ -136,5 +137,20 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_15ssp"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintTop_toBottomOf="@id/engineers_rv"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

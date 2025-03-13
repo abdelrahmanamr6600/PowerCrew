@@ -1,6 +1,7 @@
 package com.example.powercrew.ui.reportproblemfragment
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -8,51 +9,66 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.powercrew.R
-import com.example.powercrew.R.color
 
 
-import com.example.powercrew.databinding.CityCardBinding
-import com.example.powercrew.databinding.EngineerCardBinding
-import com.example.powercrew.domain.models.CityItem
+import com.example.powercrew.databinding.SelectEngineerCardBinding
+
 import com.example.powercrew.domain.models.Engineer
-import com.google.android.material.animation.AnimationUtils
 
-class OnlineEngineersListAdapter:RecyclerView.Adapter<OnlineEngineersListAdapter.EngineersViewHolder>() {
-    lateinit var onCallClick:((String)->Unit)
 
-    private val diffUtil = object: DiffUtil.ItemCallback<Engineer>() {
+class OnlineEngineersListAdapter : RecyclerView.Adapter<OnlineEngineersListAdapter.EngineersViewHolder>() {
+
+    lateinit var onCardClick: ((String) -> Unit)
+
+    private val diffUtil = object : DiffUtil.ItemCallback<Engineer>() {
         override fun areItemsTheSame(oldItem: Engineer, newItem: Engineer): Boolean {
-            return (oldItem.fullName==newItem.fullName)
+            return oldItem.fullName == newItem.fullName
         }
 
         override fun areContentsTheSame(oldItem: Engineer, newItem: Engineer): Boolean {
             return oldItem == newItem
         }
     }
-     val diff = AsyncListDiffer(this,diffUtil)
 
-   inner class EngineersViewHolder( val binding: EngineerCardBinding):ViewHolder(binding.root)
+    val diff = AsyncListDiffer(this, diffUtil)
+
+    private  var selectedPosition = RecyclerView.NO_POSITION
+    inner class EngineersViewHolder(val binding: SelectEngineerCardBinding) : ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EngineersViewHolder {
-        return EngineersViewHolder(EngineerCardBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return EngineersViewHolder(
+            SelectEngineerCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
-    override fun getItemCount(): Int {
-        return diff.currentList.size
-    }
+    override fun getItemCount(): Int = diff.currentList.size
 
     override fun onBindViewHolder(holder: EngineersViewHolder, position: Int) {
-        holder.binding.nameTv.text = diff.currentList[position].fullName
-        holder.binding.cityTv.text = diff.currentList[position].cityItem!!.cityNameEn
-        if (diff.currentList[position].state!!){
-            holder.binding.stateTv.text = "online"
-        } else{
-            holder.binding.stateTv.text = "offline"
-            holder.binding.stateTv.setTextColor(Color.RED)
-        }
-        holder.binding.root.setBackgroundResource(R.drawable.city_card_background)
-        holder.binding.callIconIv.setOnClickListener {
-            onCallClick.invoke(diff.currentList[position].phone)
+        val engineer = diff.currentList[position]
+
+        holder.binding.nameTv.text = engineer.fullName
+        holder.binding.cityTv.text = engineer.cityItem!!.cityNameEn
+        holder.binding.stateTv.text = if (engineer.state) "online" else "offline"
+        holder.binding.stateTv.setTextColor(if (engineer.state) Color.GREEN else Color.RED)
+
+        holder.binding.checkbox.isChecked = holder.bindingAdapterPosition  == selectedPosition
+
+        holder.binding.root.setOnClickListener {
+            val currentPosition = holder.adapterPosition
+            if (currentPosition != RecyclerView.NO_POSITION && selectedPosition != currentPosition) {
+                val previousPosition = selectedPosition
+                selectedPosition = currentPosition
+                onCardClick.invoke(diff.currentList[currentPosition].userId)
+
+                notifyItemChanged(previousPosition)
+                notifyItemChanged(selectedPosition)
+            }
         }
     }
+    fun clearListSelector(){
+         selectedPosition = RecyclerView.NO_POSITION
+        notifyDataSetChanged()
+
+    }
 }
+
