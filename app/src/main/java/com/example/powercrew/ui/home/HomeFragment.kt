@@ -1,5 +1,7 @@
 package com.example.powercrew.ui.home
 
+import DataStoreManager
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +19,10 @@ import com.example.powercrew.ui.pendingproblems.ProblemsFragment
 import com.example.powercrew.ui.pendingproblems.ProblemsViewModel
 import com.example.powercrew.ui.reportproblemfragment.ReportProblemFragment
 import com.example.powercrew.utils.Resource
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment() {
@@ -26,11 +32,13 @@ class HomeFragment : Fragment() {
     private val problemsListAdapter = ProblemsAdapter()
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
 
+    @SuppressLint("StringFormatInvalid")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +47,14 @@ class HomeFragment : Fragment() {
         setOnClickListener()
         fetchProblems()
         getProblems()
+         val dataStore:DataStoreManager = DataStoreManager(requireContext())
+        CoroutineScope(Dispatchers.Main).launch { // يجب أن يكون على الـ Main Thread لأنه يحدث UI
+            dataStore.userData.collect { user ->
+                user?.let {
+                    binding.welcomeTv.text =  requireContext().getString(R.string.welcome, it.fullName)
+                }
+            }
+        }
 
 
         return  binding.root

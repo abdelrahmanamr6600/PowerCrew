@@ -23,7 +23,10 @@ class LoginFragment : Fragment() {
     private val viewModel: LoginViewModel by viewModels { ViewModelProvider.AndroidViewModelFactory(requireActivity().application) }
     private lateinit var userEmail:String
     private lateinit var userPassword:String
-
+    override fun onStart() {
+        super.onStart()
+        checkLoginState()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,7 +38,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        checkLoginState()
+
         onLoginClickListener()
         observeValidationState()
         goToRegistrationFragment()
@@ -142,7 +145,6 @@ class LoginFragment : Fragment() {
 
     private fun checkCityState() {
    viewModel.cityState.observe(viewLifecycleOwner){state->
-       Log.d("a7a",state.toString())
        if (state){
            goToHomeScreen()
        }else{

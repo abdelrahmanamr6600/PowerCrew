@@ -39,7 +39,12 @@ class ProblemsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPendingProblemsBinding.inflate(inflater, container, false)
-        binding.toolbar.title ="$problemsStatue Problems"
+        if (problemsStatue == "Pending"){
+            binding.toolbar.title =requireContext().getString(R.string.pending_problems)
+        } else{
+            binding.toolbar.title =requireContext().getString(R.string.completed_problems)
+        }
+
         fetchProblems(problemsStatue)
         getProblems()
         getEngineerInfo()

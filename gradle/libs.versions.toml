@@ -50,6 +50,7 @@ meowBottomNavigation = "1.3.1"
 meowBottomNavigationJava = "1.2.0"
 curved_bottom_navigation = "0.6.5"
 runtimeSavedInstanceState = "1.0.0-alpha11"
+roundedimageview = "2.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -103,6 +104,7 @@ meow-bottom-navigation = { group = "com.etebarian", name = "meow-bottom-navigati
 meow-bottom-navigation-java = { group = "com.etebarian", name = "meow-bottom-navigation-java", version.ref = "meowBottomNavigationJava" }
 curved_bottom_navigation = { group = "np.com.susanthapa", name = "curved_bottom_navigation", version.ref = "curved_bottom_navigation" }
 androidx-runtime-saved-instance-state = { group = "androidx.compose.runtime", name = "runtime-saved-instance-state", version.ref = "runtimeSavedInstanceState" }
+roundedimageview = { group = "com.makeramen", name = "roundedimageview", version.ref = "roundedimageview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

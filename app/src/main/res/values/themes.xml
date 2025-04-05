@@ -27,12 +27,16 @@
         <item name="android:padding">@dimen/_4sdp</item>
     </style>
 
-    <!-- نمط عنوان التولبار -->
+
     <style name="ToolbarTitleBold">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
 
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
 
 </resources>

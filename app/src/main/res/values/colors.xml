@@ -7,4 +7,10 @@
     <color name="auth_btn">#0265ff</color>
     <color name="primary_color">#0265ff</color>
     <color name="state_color">#38761d</color>
+    <color name="radiobuttonColor">#989898</color>
+    <color name="btnDisabledColor">#33FBF6F6</color>
+    <color name="container_background">#FFFFFFFF</color>
+    <color name="toggle_selected">#284693</color>
+    <color name="BarColorIndicator">#C8C8C8</color>
+    <color name="select_Language">#284693</color>
 </resources>

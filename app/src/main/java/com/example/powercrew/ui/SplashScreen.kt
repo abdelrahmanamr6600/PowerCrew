@@ -9,15 +9,15 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.media3.exoplayer.ExoPlayer
-import androidx.navigation.findNavController
 
 import com.example.powercrew.R
 import com.example.powercrew.databinding.ActivitySplashScreenBinding
 import com.example.powercrew.ui.login.LoginViewModel
+import com.example.powercrew.ui.main.MainActivity
+import com.example.powercrew.utils.LocaleHelper
 import com.example.powercrew.utils.PlayerManager
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -32,6 +32,7 @@ class SplashScreen : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        LocaleHelper.loadLocale(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)

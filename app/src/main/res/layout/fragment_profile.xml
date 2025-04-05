@@ -62,6 +62,8 @@
                 android:color="@color/primary_color"
                 android:elevation="@dimen/_5sdp"
                 android:hint="@string/fullName"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:textCursorDrawable="@drawable/text_cursor"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
@@ -74,7 +76,7 @@
 
 
             <EditText
-                android:id="@+id/lastName"
+                android:id="@+id/email_et"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_marginStart="@dimen/_15sdp"
@@ -86,9 +88,10 @@
                 android:color="@color/primary_color"
                 android:elevation="@dimen/_5sdp"
                 android:hint="@string/email"
-                android:imeOptions="actionDone"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:importantForAutofill="no"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:paddingStart="@dimen/_15sdp"
                 android:paddingEnd="@dimen/_15sdp"
                 android:textColor="@color/black"
@@ -136,14 +139,7 @@
                     android:background="@color/white"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_2sdp"
-                        android:text="@string/phone"
-                        android:textColor="@color/black" />
+
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_change_phone"

@@ -3,6 +3,7 @@ package com.example.powercrew.ui.cities
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.powercrew.R
 import com.example.powercrew.databinding.FragmentChooseCityBinding
 import com.example.powercrew.domain.models.Cities
+import com.example.powercrew.domain.repositories.ProfileRepository
+import com.example.powercrew.ui.mainfragment.MainFragment
+import com.example.powercrew.ui.profile.ProfileFragment
 import com.example.powercrew.utils.Resource
 import com.mancj.materialsearchbar.MaterialSearchBar
 import kotlinx.coroutines.Dispatchers
@@ -28,9 +32,14 @@ class ChooseCityFragment : Fragment() , MaterialSearchBar.OnSearchActionListener
     private val binding get() = _binding!!
     private  var citesAdapter =CitiesListAdapter()
     var citiesList = Cities()
+    private var changeCityState:Int? = null
     private val viewModel: ChoseCityViewModel by viewModels { ViewModelProvider.AndroidViewModelFactory(requireActivity().application) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments.let {
+            changeCityState = arguments?.getInt("ChangeCity")
+        }
+        Log.d("state",changeCityState.toString())
 
     }
 
@@ -58,11 +67,29 @@ class ChooseCityFragment : Fragment() , MaterialSearchBar.OnSearchActionListener
             when(resources){
                 is Resource.Error -> Toast.makeText(requireContext(),resources.message,Toast.LENGTH_SHORT).show()
                 is Resource.Loading -> {}
-                is Resource.Success -> goToHomeFragment()
+                is Resource.Success -> goToHomeOrProfile()
             }
 
 
         }
+    }
+
+    private fun goToHomeOrProfile(){
+        if (changeCityState==1){
+       goToProfileFragment()
+        }
+        else{
+            goToHomeFragment()
+        }
+    }
+
+    private fun goToProfileFragment(){
+        val mainFragment = MainFragment()
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container_view, mainFragment)
+            .addToBackStack(null)
+            .commit()
     }
     private fun goToHomeFragment(){
         val navOptions = NavOptions.Builder()

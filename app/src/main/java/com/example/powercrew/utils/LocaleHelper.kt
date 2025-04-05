@@ -1,3 +1,5 @@
+package com.example.powercrew.utils
+
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
@@ -5,33 +7,50 @@ import java.util.Locale
 
 object LocaleHelper {
 
-    fun setLocale(context: Context, language: String): Context {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            updateResources(context, language)
-        } else {
-            updateResourcesLegacy(context, language)
-        }
-    }
-
-    private fun updateResources(context: Context, language: String): Context {
-        val locale = Locale(language)
+    fun setAppLocale(context: Context): Context {
+        val locale = Locale.getDefault()
         Locale.setDefault(locale)
 
         val config = Configuration(context.resources.configuration)
         config.setLocale(locale)
-        return context.createConfigurationContext(config)
+        saveLanguage(context, locale.language)
+        return context.createConfigurationContext(config) // استخدام الطريقة الحديثة
     }
 
-    @Suppress("DEPRECATION")
-    private fun updateResourcesLegacy(context: Context, language: String): Context {
-        val locale = Locale(language)
+    fun setLocale(context: Context, languageCode: String) {
+
+        updateResources(context, languageCode)
+    }
+
+    fun loadLocale(context: Context) {
+        val sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val savedLang = sharedPreferences.getString("App_Lang", null)
+
+        val systemLang = Locale.getDefault().language
+        val languageToApply = savedLang ?: systemLang
+
+        updateResources(context, languageToApply)
+    }
+
+    private fun saveLanguage(context: Context, languageCode: String) {
+        val sharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putString("App_Lang", languageCode).apply()
+    }
+
+    private fun updateResources(context: Context, languageCode: String) {
+        val locale = Locale(languageCode)
         Locale.setDefault(locale)
 
         val resources = context.resources
-        val config = resources.configuration
-        config.locale = locale
-        resources.updateConfiguration(config, resources.displayMetrics)
+        val config = Configuration(resources.configuration)
 
-        return context
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val localeManager = context.getSystemService(android.app.LocaleManager::class.java)
+            localeManager?.applicationLocales = android.os.LocaleList.forLanguageTags(languageCode)
+        } else {
+            config.setLocale(locale)
+            resources.updateConfiguration(config, resources.displayMetrics)
+        }
     }
+
 }

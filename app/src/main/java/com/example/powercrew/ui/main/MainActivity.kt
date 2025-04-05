@@ -1,6 +1,5 @@
-package com.example.powercrew.ui
+package com.example.powercrew.ui.main
 
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 //    override fun attachBaseContext(newBase: Context) {
 //
 //        val language = "en"
-//        super.attachBaseContext(LocaleHelper.setLocale(newBase, language))
+//        super.attachBaseContext(com.example.powercrew.utils.LocaleHelper.setLocale(newBase, language))
 //    }
 //
 //    fun setAppLanguage(language: String) {

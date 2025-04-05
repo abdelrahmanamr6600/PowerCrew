@@ -9,9 +9,11 @@ import com.example.powercrew.domain.models.User
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import java.util.Locale
 
 // إنشاء امتداد DataStore للـ Context
 val Context.dataStore by preferencesDataStore("db")
@@ -25,6 +27,9 @@ class DataStoreManager(private val context: Context) {
 
         val USER_JSON_KEY = stringPreferencesKey("user")
         val loginState_KEY = booleanPreferencesKey("loginState")
+        val FULLNAME_KEY = stringPreferencesKey("fullName")
+        private val LANGUAGE_KEY = stringPreferencesKey("language")
+
 
     }
 
@@ -39,6 +44,53 @@ class DataStoreManager(private val context: Context) {
             }
         }
     }
+    suspend fun updateFullName(newName: String) {
+       val user =  userData.firstOrNull()
+            user?.fullName = newName
+
+        context.dataStore.edit { preferences ->
+            val userJson = Gson().toJson(user)
+            preferences[USER_JSON_KEY] = userJson
+        }
+    }
+
+    suspend fun updatePhone(newPhone: String) {
+        val user =  userData.firstOrNull()
+        user?.phone = newPhone
+
+        context.dataStore.edit { preferences ->
+            val userJson = Gson().toJson(user)
+            preferences[USER_JSON_KEY] = userJson
+        }
+    }
+
+    suspend fun updatePassword(newPassword: String) {
+        val user =  userData.firstOrNull()
+        user?.password= newPassword
+
+        context.dataStore.edit { preferences ->
+            val userJson = Gson().toJson(user)
+            preferences[USER_JSON_KEY] = userJson
+        }
+    }
+
+    suspend fun updateEmail(newEmail: String) {
+        val user =  userData.firstOrNull()
+        user?.email = newEmail
+
+        context.dataStore.edit { preferences ->
+            val userJson = Gson().toJson(user)
+            preferences[USER_JSON_KEY] = userJson
+        }
+    }
+    suspend fun saveLanguage(languageCode: String) {
+        context.dataStore.edit { preferences ->
+            preferences[LANGUAGE_KEY] = languageCode
+        }
+    }
+
+
+
 
     suspend fun updateCity(cityItem: CityItem) {
         val gson = Gson()
@@ -72,6 +124,9 @@ class DataStoreManager(private val context: Context) {
 
     val cityItemData: Flow<CityItem?> = userData.map { user ->
         user?.cityItem
+    }
+    val languageFlow: Flow<String> = context.dataStore.data.map { preferences ->
+        preferences[LANGUAGE_KEY] ?: Locale.getDefault().language
     }
 
 

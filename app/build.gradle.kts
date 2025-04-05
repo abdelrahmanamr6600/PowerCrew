@@ -74,6 +74,7 @@ dependencies {
     implementation(libs.androidx.multidex)
     implementation(libs.curved.bottom.navigation)
     implementation(libs.androidx.runtime.saved.instance.state)
+    implementation(libs.roundedimageview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
