@@ -4,6 +4,7 @@ import DataStoreManager
 import android.content.Context
 import com.example.powercrew.domain.models.User
 import com.example.powercrew.utils.FirestoreCollections
+import com.example.powercrew.utils.FirestoreFieldNames
 import com.example.powercrew.utils.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
@@ -11,6 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.tasks.await
 
 class LoginRepository(private val firebaseAuth: FirebaseAuth, private val fireStore: FirebaseFirestore ,private val context: Context) {
@@ -25,7 +27,9 @@ class LoginRepository(private val firebaseAuth: FirebaseAuth, private val fireSt
             val user = userQuery.toObject(User::class.java)
             saveUserDataToDataStore(user!!)
             editLoginState(true)
+            saveUserToken()
             Resource.Success(user)
+
         } catch (e: FirebaseAuthException) {
             when (e.errorCode) {
                 "ERROR_INVALID_EMAIL" -> Resource.Error("Invalid email format.")
@@ -58,5 +62,9 @@ class LoginRepository(private val firebaseAuth: FirebaseAuth, private val fireSt
     suspend fun getUserCityState(): Boolean {
         return dataStore.userData.first()?.cityItem != null
 
+    }
+    private suspend   fun saveUserToken(){
+        fireStore.collection(FirestoreCollections.USER).document(firebaseAuth.uid!!)
+            .update(FirestoreFieldNames.TOKEN,dataStore.token.firstOrNull())
     }
 }

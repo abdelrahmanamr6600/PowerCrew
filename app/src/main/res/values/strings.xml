@@ -88,4 +88,7 @@
     <string name="name_youssef">Youssef Abdelnasser Youssef</string>
     <string name="year">2025</string>
     <string name="developed_by">Developed By</string>
+    <string name="new_problem">New Problem</string>
+    <string name="the_power_has_been_disconnected">The power has been disconnected</string>
+    <string name="the_power_has_been_connected">The Power has been connected</string>
 </resources>

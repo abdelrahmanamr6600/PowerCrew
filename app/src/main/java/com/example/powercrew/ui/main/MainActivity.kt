@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.powercrew.R
+import com.example.powercrew.utils.FirestoreCollections
+import com.example.powercrew.utils.FirestoreInstance
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,14 +23,5 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
-//    override fun attachBaseContext(newBase: Context) {
-//
-//        val language = "en"
-//        super.attachBaseContext(com.example.powercrew.utils.LocaleHelper.setLocale(newBase, language))
-//    }
-//
-//    fun setAppLanguage(language: String) {
-//
-//        recreate()
-//    }
+
 }

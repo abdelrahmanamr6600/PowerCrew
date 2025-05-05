@@ -29,6 +29,7 @@ class DataStoreManager(private val context: Context) {
         val loginState_KEY = booleanPreferencesKey("loginState")
         val FULLNAME_KEY = stringPreferencesKey("fullName")
         private val LANGUAGE_KEY = stringPreferencesKey("language")
+        val TOKEN_KEY = stringPreferencesKey("token")
 
 
     }
@@ -83,9 +84,11 @@ class DataStoreManager(private val context: Context) {
             preferences[USER_JSON_KEY] = userJson
         }
     }
-    suspend fun saveLanguage(languageCode: String) {
+
+    suspend fun addToken(token: String) {
         context.dataStore.edit { preferences ->
-            preferences[LANGUAGE_KEY] = languageCode
+            preferences[TOKEN_KEY] = token
+
         }
     }
 
@@ -125,8 +128,8 @@ class DataStoreManager(private val context: Context) {
     val cityItemData: Flow<CityItem?> = userData.map { user ->
         user?.cityItem
     }
-    val languageFlow: Flow<String> = context.dataStore.data.map { preferences ->
-        preferences[LANGUAGE_KEY] ?: Locale.getDefault().language
+    val token: Flow<String> = context.dataStore.data.map { preferences ->
+        preferences[TOKEN_KEY] ?: ""
     }
 
 

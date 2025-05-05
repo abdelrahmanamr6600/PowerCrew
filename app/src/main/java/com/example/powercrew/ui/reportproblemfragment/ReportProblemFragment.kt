@@ -32,6 +32,7 @@ class ReportProblemFragment : Fragment() {
 
     private lateinit  var onlineEngineersAdapter:OnlineEngineersListAdapter
     private lateinit var selectedEngineerId:String
+    private lateinit var selectedEngineerToken:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -101,7 +102,7 @@ class ReportProblemFragment : Fragment() {
           getCurrentDateTimeOld(),
           selectedEngineerId,
           )
-       reportProblemViewModel.reportProblem(problem)
+       reportProblemViewModel.reportProblem(problem,selectedEngineerToken)
   }
 
     private fun setupEngineersRecyclerView(engineersList:List<Engineer>){
@@ -117,7 +118,11 @@ class ReportProblemFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     setupEngineersRecyclerView(result.data!!)
-                    onlineEngineersAdapter.onCardClick = { selectedEngineerId = it }
+                    onlineEngineersAdapter.onCardClick = {id, token ->
+                        selectedEngineerId = id
+                        selectedEngineerToken = token
+
+                    }
 
                 }
                 is Resource.Error -> {

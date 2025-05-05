@@ -18,7 +18,7 @@ import com.example.powercrew.domain.models.Engineer
 
 class OnlineEngineersListAdapter : RecyclerView.Adapter<OnlineEngineersListAdapter.EngineersViewHolder>() {
 
-    lateinit var onCardClick: ((String) -> Unit)
+    lateinit var onCardClick: ((String,String) -> Unit)
 
     private val diffUtil = object : DiffUtil.ItemCallback<Engineer>() {
         override fun areItemsTheSame(oldItem: Engineer, newItem: Engineer): Boolean {
@@ -58,7 +58,9 @@ class OnlineEngineersListAdapter : RecyclerView.Adapter<OnlineEngineersListAdapt
             if (currentPosition != RecyclerView.NO_POSITION && selectedPosition != currentPosition) {
                 val previousPosition = selectedPosition
                 selectedPosition = currentPosition
-                onCardClick.invoke(diff.currentList[currentPosition].userId)
+                val id = diff.currentList[currentPosition].userId
+                val token = diff.currentList[currentPosition].token
+                onCardClick.invoke(id, token!!)
 
                 notifyItemChanged(previousPosition)
                 notifyItemChanged(selectedPosition)

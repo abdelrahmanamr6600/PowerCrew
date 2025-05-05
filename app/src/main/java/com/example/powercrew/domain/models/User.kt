@@ -7,5 +7,6 @@ data class User(
     var phone:String="",
     var password:String="",
     var cityItem: CityItem? = null,
-    var token:String? = null
+    var token:String? = null,
+    var state :Boolean = false
 )

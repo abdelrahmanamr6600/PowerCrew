@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -20,6 +22,22 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    packagingOptions {
+        resources {
+            excludes.addAll(
+                mutableSetOf(
+                    "META-INF/INDEX.LIST",
+                    "META-INF/DEPENDENCIES",
+                    "META-INF/LICENSE",
+                    "META-INF/LICENSE.txt",
+                    "META-INF/NOTICE",
+                    "META-INF/NOTICE.txt"
+                )
+            )
+        }
+    }
+
 
     buildTypes {
         release {
@@ -60,7 +78,6 @@ dependencies {
     implementation(libs.sdp.android)
     implementation(libs.ssp.android)
     implementation(libs.androidx.animation.core.android)
-    implementation(libs.firebase.firestore)
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.auth)
     implementation(libs.core.ktx)
@@ -75,6 +92,14 @@ dependencies {
     implementation(libs.curved.bottom.navigation)
     implementation(libs.androidx.runtime.saved.instance.state)
     implementation(libs.roundedimageview)
+    implementation(libs.google.firebase.firestore)
+    implementation(libs.google.auth.library.oauth2.http)
+    implementation(libs.grpc.okhttp)
+    implementation(libs.okhttp)
+    implementation(libs.google.http.client.gson)
+    implementation(libs.retrofit)
+    implementation(libs.androidx.lifecycle.process)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -88,6 +113,7 @@ dependencies {
 
     // Lifecycles only (without ViewModel or LiveData)
     implementation(libs.androidx.lifecycle.runtime)
+    implementation (libs.swipeable.button)
 
 
 }

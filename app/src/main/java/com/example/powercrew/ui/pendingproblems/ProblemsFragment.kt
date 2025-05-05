@@ -48,6 +48,7 @@ class ProblemsFragment : Fragment() {
         fetchProblems(problemsStatue)
         getProblems()
         getEngineerInfo()
+        setupRecyclerView()
 
         return binding.root
     }
@@ -60,23 +61,28 @@ class ProblemsFragment : Fragment() {
         viewModel.problemList.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Resource.Loading -> { }
-                is Resource.Success -> setupRecyclerView(result.data!!)
+                is Resource.Success -> passProblemsToRecyclerView(result.data!!)
                 is Resource.Error -> binding.progressBar.visibility = View.INVISIBLE
             }
         }
     }
-
-    private fun setupRecyclerView(problemsList: List<Problem>) {
-        binding.problemsRv.apply {
-            adapter = problemsListAdapter
-            layoutManager = LinearLayoutManager(requireContext())
-        }
+    private fun passProblemsToRecyclerView(problemsList: List<Problem>){
         if (problemsList.isNotEmpty()) {
             binding.progressBar.visibility = View.INVISIBLE
+            binding.noProblemTv.visibility = View.INVISIBLE
             problemsListAdapter.diff.submitList(problemsList)
         } else {
             binding.noProblemTv.visibility = View.VISIBLE
             binding.progressBar.visibility = View.INVISIBLE
+            problemsListAdapter.diff.submitList(emptyList())
+        }
+    }
+
+
+    private fun setupRecyclerView() {
+        binding.problemsRv.apply {
+            adapter = problemsListAdapter
+            layoutManager = LinearLayoutManager(requireContext())
         }
     }
 

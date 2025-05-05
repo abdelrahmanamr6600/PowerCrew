@@ -9,5 +9,6 @@ object FirestoreFieldNames {
     const val CREWID = "crewId"
     const val EMAIL = "email"
     const val PASSWORD = "password"
+    const val TOKEN = "token"
 
 }

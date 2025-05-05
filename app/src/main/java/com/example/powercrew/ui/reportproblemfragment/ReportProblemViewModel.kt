@@ -1,6 +1,7 @@
 package com.example.powercrew.ui.reportproblemfragment
 
 import android.app.Application
+import android.media.session.MediaSession.Token
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,10 +23,10 @@ class ReportProblemViewModel(application: Application):AndroidViewModel(applicat
         getUserId()
     }
 
-     fun reportProblem(problem: Problem){
+     fun reportProblem(problem: Problem,token:String){
         viewModelScope.launch {
             _reportProblemState.value = Resource.Loading()
-            _reportProblemState.postValue( reportProblemUseCase.reportProblem(problem))
+            _reportProblemState.postValue( reportProblemUseCase.reportProblem(problem,token))
         }
 
     }

@@ -7,7 +7,7 @@ import com.example.powercrew.domain.repositories.ReportProblemRepository
 class ReportProblemUseCase(context: Context) {
 private var reportProblemRepository = ReportProblemRepository(context)
 
-    suspend fun reportProblem(problem: Problem) = reportProblemRepository.reportProblem(problem)
+    suspend fun reportProblem(problem: Problem,token:String) = reportProblemRepository.reportProblem(problem,token)
 
 
     suspend fun getUserId() = reportProblemRepository.getUserData()
